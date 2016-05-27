@@ -1,0 +1,21 @@
+#==========================================
+#  files that required:
+
+cosp.job                   # pbs job
+cosp_output_nl.txt         # called by cosp_test, physics of cosp simulator
+cosp_cmor_nl.temp.txt      # called by cosp_driver.sh as template
+cosp_input_nl.temp.txt     # called by cosp_driver.sh as template
+cosp_cmor_nl.txt           # called by cosp_test
+cosp_driver.sh             # loop in timestep calling cosp_test
+cosp_input_nl.txt          # called by cosp_test
+cosp_test                  # exe for the cosp simulator
+#==========================================
+# to run the simulator
+
+./prepare-input-file-SUBEX.sh  # produce the inputs of cosp simulater from regcm output
+                               # could be submitted to pbs by cosp.job
+
+./cosp_test             # produce clouds, each timestep in one directory named as cloud_year-$mon-$timestep
+                        # could be submitted to pbs by call_cosp.job
+
+NOTE: pay attention to the simulator (cosp_test) output directory and the file inside, whose name is shifted by +1 timestep.

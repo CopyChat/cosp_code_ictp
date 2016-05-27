@@ -1,0 +1,22 @@
+#!/bin/bash
+
+#PBS -N cosp_subex_pre
+#PBS -l walltime=24:00:00
+#PBS -q serial
+
+#=================================================== 
+# load required modules
+#. /etc/profile.d/modules.sh
+module purge 
+module load nco
+module load openmpi/intel/2013 
+module load netcdf/intel/2013
+module load cdo/1.6.3
+#=================================================== 
+# run the preprocessing
+
+cd /home/netapp-clima-scratch/grp07/ex/output
+
+
+
+./prepare-input-file-SUBEX.sh
