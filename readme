@@ -14,8 +14,10 @@ cosp_test                  # exe for the cosp simulator
 
 ./prepare-input-file-SUBEX.sh  # produce the inputs of cosp simulater from regcm output
                                # could be submitted to pbs by cosp.job
+                               # for MICRO, please find the code in ex_2/output, almost the same
 
 ./cosp_test             # produce clouds, each timestep in one directory named as cloud_year-$mon-$timestep
                         # could be submitted to pbs by call_cosp.job
 
 NOTE: pay attention to the simulator (cosp_test) output directory and the file inside, whose name is shifted by +1 timestep.
+
